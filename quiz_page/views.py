@@ -96,7 +96,7 @@ def quiz(request):
                 print(i.question)
                 print(f"Student Answer:"+ans)
                 print(f"Correct Answer:"+i.corrans)
-                print()
+                print(f"---------------------------------")
                 if i.corrans == request.POST.get(i.question):
                     score+=10
                     correct+=1
