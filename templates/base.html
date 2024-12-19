@@ -21,6 +21,18 @@
         <nav navbar.navbar-light.bg-light>
         <nav class="header">
             <label class="logo">Quiz</label>
+            <ul>
+                {%if user.is_authenticated%}
+                    <li><a href="{%url "dashboard"%}">Dashboard</a></li>
+                    <li><a>{{request.user.username}}</a></li>
+                    <li><a href="{% url "logout" %}">Logout</a></li>
+                {%else%}
+                    <li><a class="active" href="{% url "starting_page" %}">Home</a></li>
+                    <li><a href="{% url "admin:index" %}" target="_blank">Admin</a></li>
+                    <li><a href="{% url "register" %}">Register</a></li>
+                    <li><a href="{% url "login_user" %}">Login</a></li>
+                {%endif%}
+            </ul>
         </nav>
         {% block content %}
     
